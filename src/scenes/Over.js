@@ -2,6 +2,9 @@ class Over extends Phaser.Scene {
     constructor() {
         super("overScene");
     }
+    preload(){
+        this.load.image('starfield', './assets/starfield.png');
+    }
     create() {
         // Overmenu display setting
         let overConfig = {
@@ -16,7 +19,8 @@ class Over extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-
+        
+        this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
         // show Overmenu text
         let centerX = game.config.width/2;
         let centerY = game.config.height/2;
