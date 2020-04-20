@@ -16,7 +16,7 @@ class Play extends Phaser.Scene {
     create() {
         // place tile sprite
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
-
+        
         // white rectangle borders
         this.add.rectangle(5, 5, 630, 32, 0xFFFFFF).setOrigin(0, 0);
         this.add.rectangle(5, 443, 630, 32, 0xFFFFFF).setOrigin(0, 0);
@@ -33,6 +33,7 @@ class Play extends Phaser.Scene {
         this.ship02 = new Spaceship(this, game.config.width + 96, 196, 'spaceship', 0, 20).setOrigin(0,0);
         this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
         this.smallship = new Smallship(this, game.config.width, 170, 'smallship', 0, 50, 4).setOrigin(0,0);
+
         // define keys
         keyF = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.F);
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
@@ -63,7 +64,9 @@ class Play extends Phaser.Scene {
             fixedWidth: 100
         }
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
-        
+
+        this.Timer = 0;
+        this.timeTracker = this.add.text(69, 88, this.clock.delay, scoreConfig);
 
         // game over flag
         this.gameOver = false;
@@ -97,6 +100,7 @@ class Play extends Phaser.Scene {
             this.ship02.update();
             this.ship03.update();
             this.smallship.update();
+            //this.timeTracker.update();
         }             
         // check collisions
         if(this.checkCollision(this.p1Rocket, this.ship03)) {
