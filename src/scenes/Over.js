@@ -26,7 +26,9 @@ class Over extends Phaser.Scene {
         this.add.text(centerX, centerY- textSpacer, 'GAME OVER', overConfig).setOrigin(0.5);
         overConfig.backgroundColor = '#00FF00';
         overConfig.color = '#000';
-        this.add.text(centerX, centerY + textSpacer, 'Try Again, Press ← for Easy or → for Hard', overConfig).setOrigin(0.5);  
+        this.add.text(centerX, centerY + textSpacer, 'Try Again', overConfig).setOrigin(0.5);  
+        this.add.text(centerX, centerY + textSpacer + 40, 'Press ← for Easy or → for Hard', overConfig).setOrigin(0.5); 
+       
 
         // BestScore display
         this.add.text(0, 54, 'Your Best Score is ' + bestScore, overConfig);
