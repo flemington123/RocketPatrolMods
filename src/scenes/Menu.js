@@ -20,8 +20,8 @@ class Menu extends Phaser.Scene {
         let menuConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#FF69B4',
+            color: '#FFF0F5',
             align: 'right',
             padding: {
                 top: 5,
@@ -38,12 +38,12 @@ class Menu extends Phaser.Scene {
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
         this.add.text(centerX, centerY- textSpacer, 'ROCKET PATROL', menuConfig).setOrigin(0.5);
         this.add.text(centerX, centerY, 'Use ←→ arrows to move & (F) to Fire', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = '#00FF00';
+        menuConfig.backgroundColor = '#FFB6C1';
         menuConfig.color = '#000';
         this.add.text(centerX, centerY + textSpacer, 'Press ← for Easy or → for Hard', menuConfig).setOrigin(0.5);  
         
 
-        this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, 'rocket').setScale(0.5, 0.5).setOrigin(0, 0);
+        this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, 'rocket').setScale(1, 1).setOrigin(0, 0);
         this.ship = new Spaceship(this, 20, 431, 'spaceship', 0, 20).setScale(3, 3).setOrigin(0,0);
         this.smallship = new Smallship(this, game.config.width-20, 431, 'smallship', 0, 50, 4).setOrigin(0,0);
         // define keys

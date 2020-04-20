@@ -23,7 +23,15 @@ class Play extends Phaser.Scene {
         this.add.rectangle(5, 5, 32, 455, 0xFFB6C1).setOrigin(0, 0);
         this.add.rectangle(603, 5, 32, 455, 0xFFB6C1).setOrigin(0, 0);
         // green UI background
-        this.add.rectangle(37, 42, 566, 64, 0xFF69B4).setOrigin(0, 0);
+        this.add.rectangle(37, 37, 566, 64, 0xFF69B4).setOrigin(0, 0);
+        //four corner
+        this.add.rectangle(0, 0, 48, 48, 0x00FF7F).setOrigin(0, 0);
+        this.add.rectangle(592, 0, 48, 48, 0x00FF7F).setOrigin(0, 0);
+        this.add.rectangle(0, 435, 48, 48, 0x00FF7F).setOrigin(0, 0);
+        this.add.rectangle(592, 435, 48, 48, 0x00FF7F).setOrigin(0, 0);
+       
+       
+        
 
         // add rocket (p1)
         this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, 'rocket').setScale(1, 1).setOrigin(0, 0);
@@ -54,7 +62,7 @@ class Play extends Phaser.Scene {
         let scoreConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
+            backgroundColor: '#F0FFFF',
             color: '#843605',
             align: 'right',
             padding: {
@@ -63,8 +71,12 @@ class Play extends Phaser.Scene {
             },
             fixedWidth: 100
         }
+        const bestScore = localStorage.getItem('bestScore');
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
+        this.add.text(450, 54, 'B: ' + bestScore, scoreConfig);
 
+        //Fire
+        this.add.text(250, 54, 'Fire', scoreConfig);
         //this.Timer = 0;
         //this.timeTracker = this.add.text(69, 88, this.clock, scoreConfig);
 

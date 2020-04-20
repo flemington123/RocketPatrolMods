@@ -10,8 +10,8 @@ class Over extends Phaser.Scene {
         let overConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
-            backgroundColor: '#F3B141',
-            color: '#843605',
+            backgroundColor: '#FF69B4',
+            color: '#FFF0F5',
             align: 'right',
             padding: {
                 top: 5,
@@ -19,7 +19,7 @@ class Over extends Phaser.Scene {
             },
             fixedWidth: 0
         }
-        
+
         this.starfield = this.add.tileSprite(0, 0, 640, 480, 'starfield').setOrigin(0, 0);
         // show Overmenu text
         let centerX = game.config.width/2;
@@ -28,8 +28,8 @@ class Over extends Phaser.Scene {
         
         const bestScore = localStorage.getItem('bestScore');
         this.add.text(centerX, centerY- textSpacer, 'GAME OVER', overConfig).setOrigin(0.5);
-        overConfig.backgroundColor = '#00FF00';
-        overConfig.color = '#000';
+        overConfig.backgroundColor = '#FFB6C1';
+        overConfig.color = '#FFF0F5';
         this.add.text(centerX, centerY + textSpacer, 'Try Again', overConfig).setOrigin(0.5);  
         this.add.text(centerX, centerY + textSpacer + 40, 'Press ← for Easy or → for Hard', overConfig).setOrigin(0.5); 
        
