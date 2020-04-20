@@ -2,17 +2,8 @@ class Over extends Phaser.Scene {
     constructor() {
         super("overScene");
     }
-
-    /*init(data){
-        console.log('init', data);
-        this.lastscore = data;
-        if(this.lastscore >= this.bestscore){
-            this.bestscore = this.lastscore;
-        }
-    }
-    */
     create() {
-        // Overmenu display
+        // Overmenu display setting
         let overConfig = {
             fontFamily: 'Courier',
             fontSize: '28px',
@@ -33,14 +24,13 @@ class Over extends Phaser.Scene {
         
         const bestScore = localStorage.getItem('bestScore');
         this.add.text(centerX, centerY- textSpacer, 'GAME OVER', overConfig).setOrigin(0.5);
-        
         overConfig.backgroundColor = '#00FF00';
         overConfig.color = '#000';
-        this.add.text(centerX, centerY + textSpacer, 'Press ← for Easy or → for Hard', overConfig).setOrigin(0.5);  
+        this.add.text(centerX, centerY + textSpacer, 'Try Again, Press ← for Easy or → for Hard', overConfig).setOrigin(0.5);  
 
         // BestScore display
         this.add.text(0, 54, 'Your Best Score is ' + bestScore, overConfig);
-        //this.add.text(200, 54, bestScore, overConfig);
+        
         
         // define keys
         keyLEFT = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.LEFT);
