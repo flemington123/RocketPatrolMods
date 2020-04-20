@@ -29,9 +29,9 @@ class Play extends Phaser.Scene {
         this.p1Rocket = new Rocket(this, game.config.width/2 - 8, 431, 'rocket').setScale(0.5, 0.5).setOrigin(0, 0);
 
         // add spaceships 
-        this.ship01 = new Spaceship(this, game.config.width + 192, 132, 'spaceship', 0, 30).setOrigin(0,0);
-        this.ship02 = new Spaceship(this, game.config.width + 96, 196, 'spaceship', 0, 20).setOrigin(0,0);
-        this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setOrigin(0,0);
+        this.ship01 = new Spaceship(this, game.config.width + 192, 132, 'spaceship', 0, 30).setScale(3, 3).setOrigin(0,0);
+        this.ship02 = new Spaceship(this, game.config.width + 96, 196, 'spaceship', 0, 20).setScale(3, 3).setOrigin(0,0);
+        this.ship03 = new Spaceship(this, game.config.width, 260, 'spaceship', 0, 10).setScale(3, 3).setOrigin(0,0);
         this.smallship = new Smallship(this, game.config.width, 170, 'smallship', 0, 50, 4).setOrigin(0,0);
 
         // define keys
@@ -65,8 +65,8 @@ class Play extends Phaser.Scene {
         }
         this.scoreLeft = this.add.text(69, 54, this.p1Score, scoreConfig);
 
-        this.Timer = 0;
-        this.timeTracker = this.add.text(69, 88, this.clock.delay, scoreConfig);
+        //this.Timer = 0;
+        //this.timeTracker = this.add.text(69, 88, this.clock, scoreConfig);
 
         // game over flag
         this.gameOver = false;
@@ -78,6 +78,15 @@ class Play extends Phaser.Scene {
             this.add.text(game.config.width/2, game.config.height/2 + 64, '(F)ire to Restart or ← for Menu', scoreConfig).setOrigin(0.5);
             this.gameOver = true;
         }, null, this);
+        
+        /*var timer = scene.time.addEvent({
+            delay: 500,                // ms
+            callback: callback,
+            //args: [],
+            callbackScope: this,
+            loop: true
+        });
+        */
     }
 
     update() {
@@ -125,10 +134,10 @@ class Play extends Phaser.Scene {
 
     checkCollision(rocket, ship) {
         // simple AABB checking
-        if (rocket.x < ship.x + ship.width && 
+        if (rocket.x < ship.x + ship.width*3 && 
             rocket.x + rocket.width > ship.x && 
             rocket.y < ship.y + ship.height &&
-            rocket.height + rocket.y > ship. y) {
+            rocket.height + rocket.y > ship.y) {
                 return true;
         } else {
             return false;
